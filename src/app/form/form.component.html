@@ -1,5 +1,69 @@
-<div class="row">
-  <div class="col-md-4 text-center" >Test</div>
-  <div class="col-md-4 text-center" >Test 2</div>
-  <div class="col-md-4 text-center" >Test 3</div>
+<div class="h-100">
+<div class="row h-100">
+  <div class="col-md-6 left-container p-0 hidden-sm-down">
+    <div class="display-section float-right ">
+      <div class="">
+        <img src="../../assets/GiantRobotLTD_Logo.svg" class="form-logo">
+      </div>
+      <div class="">
+        <div>
+          <div class="title">Welcome</div>
+          <div class="sub-title">Please tell us a bit about yourself to get started.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 p-0">
+    <form [formGroup]="submissionForm" class="submission-form">
+      <div class="form-input">
+        <div><label class="form-label">FIRST NAME <span class="required-field" *ngIf="hasRequiredError('firstName')">REQUIRED</span></label>
+        </div>
+        <div><input type="text" formControlName="firstName" class=" input-field"
+                    [ngClass]="{'on-input-error': hasRequiredError('firstName')}"
+                    autocomplete="none"
+                    maxlength="100">
+        </div>
+      </div>
+
+      <div class="form-input">
+        <div>
+          <label class="form-label">LAST NAME <span class="required-field"
+                                                    *ngIf="hasRequiredError('lastName')">REQUIRED</span></label>
+        </div>
+        <div><input type="text" formControlName="lastName" class="input-field"
+                    [ngClass]="{'on-input-error': hasRequiredError('lastName')}"
+                    autocomplete="none"
+                    maxlength="100">
+        </div>
+      </div>
+
+      <div class="form-input">
+        <div><label class="form-label">ADDRESS <span class="required-field" *ngIf="hasRequiredError('address1')">REQUIRED</span></label>
+        </div>
+        <div><input type="text" formControlName="address1" class="input-field"
+                    [ngClass]="{'on-input-error': hasRequiredError('address1')}"
+                    autocomplete="none"
+                    maxlength="100"></div>
+      </div>
+
+      <div class="form-input">
+        <div>
+          <label class="form-label">ADDRESS 2 (OPTIONAL)</label>
+        </div>
+        <div><input type="text" formControlName="address2" class="input-field"
+                    autocomplete="none"
+                    maxlength="100">
+        </div>
+      </div>
+
+      <button
+        class="btn next-button"
+        type="submit"
+        (click)="onSubmit()">
+        <span class="button-text">NEXT
+          <img src="../../assets/White_Arrow.svg" class="next-icon"></span>
+      </button>
+    </form>
+  </div>
+</div>
 </div>
